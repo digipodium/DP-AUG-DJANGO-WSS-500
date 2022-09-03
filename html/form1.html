@@ -1,0 +1,55 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Example</title>
+</head>
+
+<body>
+    <form method="post">
+        <h3>Form element example</h3>
+        <input type="text" name="name" placeholder="Aapka Naam?" id="name">
+        <br>
+        <input type="number" name="age" placeholder="Aapki age?" id="age">
+        <br>
+        <input type="email" name="email" id="email" placeholder="Aapka email?">
+        <br>
+        <input type="file" name="photo" id="photo">
+        <br>
+        <input type="password" name="password" placeholder="password?">
+        <br>
+        <input type="date" name="date" id="date">
+        <br>
+        <input type="hidden" name="session_number" value="10230123">
+
+        <input type="checkbox" name="ans[]" id="agree"> do you agree?
+        <input type="checkbox" name="ans[]" id="icecream"> do you like icecream?
+        <input type="checkbox" name="ans[]" id="maggi"> do you like maggi?
+        <br>
+        gender: <br>
+        <input type="radio" name="gender" value="female">Female <br>
+        <input type="radio" name="gender" value="male">Male <br>
+        <input type="radio" name="gender" value="undisclosed">Not want to disclose<br>
+        
+        <input type="range" name="price" id="price" min="0" max="100">
+        <br>
+        how much did you want to learn?
+        <select name="learn" id="learn">
+            <option>Kindergarten</option>
+            <option>High school</option>
+            <option>Intermediate</option>
+            <option>Graduate</option>
+            <option>Post Graduate</option>
+            <option>Scholar</option>
+            <option>Nhi padhna</option>
+        </select>
+        <hr>
+        
+        <input type="submit" value="submit the form">
+        <input type="reset" value="reset the form">
+    </form>
+</body>
+
+</html>
