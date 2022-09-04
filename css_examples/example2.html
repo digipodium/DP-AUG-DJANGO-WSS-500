@@ -1,0 +1,63 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS example 2</title>
+    <style>
+        h2 {
+            color: Green;
+        }
+
+        form {
+            background-color: green;
+            width: 200px;
+            padding: 2rem;
+        }
+
+        form:hover {
+            background-color: darkgreen;
+        }
+
+        #username,
+        #pwd {
+            margin-top: .5rem;
+            width: 200px;
+        }
+
+        #username:focus, #pwd:focus {
+            color: green;
+            background-color: #f8f898;
+        }
+
+        label {
+            display: block;
+            margin-top: .5rem;
+            color: white;
+        }
+
+        input[type=submit] {
+            margin-top: .5rem
+        }
+    </style>
+</head>
+
+<body>
+    <h2>A simple form</h2>
+    <form>
+        <div>
+            <label for="username">Your Username</label>
+            <input type="text" name="username" id="username" placeholder="John">
+        </div>
+        <div>
+            <label for="pwd">Your Password</label>
+            <input type="password" name="pwd" id="pwd" placeholder="Secret">
+        </div>
+        <div>
+            <input type="submit" value="Sign In">
+        </div>
+    </form>
+</body>
+
+</html>
