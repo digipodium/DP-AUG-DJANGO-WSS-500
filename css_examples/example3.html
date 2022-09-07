@@ -1,0 +1,77 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS playground</title>
+    <style>
+        /* only when css from scratch */
+        * {
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            padding: 0;
+            margin: 0;
+        }
+
+        /* main css */
+
+        .box1 {
+            height: 200px;
+            width: 300px;
+            background-color: bisque;
+            background: #00AAFF;
+            background: -moz-linear-gradient(top, #00AAFF 0%, #09C8FD 37%, #FB3BAE 100%);
+            background: -webkit-linear-gradient(top, #00AAFF 0%, #09C8FD 37%, #FB3BAE 100%);
+            background: linear-gradient(top bottom, #00AAFF 0%, #09C8FD 37%, #FB3BAE 100%);
+        }
+
+        .box2 {
+            height: 200px;
+            width: 500px;
+            background-color: #e98e18;
+        }
+
+        .section1 {
+            height: 500px;
+            background-color: aqua;
+            background-image: url('assets/images/bg1.jpg');
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+
+        .section2 {
+            height: 100vh;
+            background-color: yellow;
+        }
+
+        .section2 .para {
+            font-size: 3rem;
+            margin: 0;
+            padding: 2rem;
+            color: #e0dfdc;
+            background: #537ba3;
+            letter-spacing: .1em;
+            text-shadow: -3px -3px 3px rgba(27, 21, 67, 0.626) ;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box1"></div>
+    <div class="box2"></div>
+    <div class="section1"></div>
+    <div class="section2">
+        <p class="para">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sapiente libero quaerat voluptates
+            labore reprehenderit eos aspernatur numquam animi voluptatem consequuntur cumque, ipsa eaque ea dicta
+            molestias ipsum hic. Ducimus, pariatur?</p>
+    </div>
+
+</body>
+
+</html>
