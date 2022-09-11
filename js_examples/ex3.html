@@ -1,0 +1,55 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sasta calculator</title>
+    <style>
+        form {
+            display: flex;
+            flex-flow: column wrap;
+            gap: .5rem;
+            width: 100%;
+            max-width: 200px;
+            margin:auto;
+        }
+        .btns{
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: space-between;
+        }
+    </style>
+</head>
+
+<body>
+    <form>
+        <label for="one">Enter first number</label>
+        <input type="number" id="one" name="one">
+        <label for="two">Enter another number</label>
+        <input type="number" name="two" id="two">
+        <div class="btns">
+            <button class="add">Add</button>
+            <button class="sub">Sub</button>
+            <button class="mul">Mul</button>
+            <button class="div">Div</button>
+        </div>
+        <h4 class="answer">Answer: N/A</h4>
+    </form>
+    <script>
+
+        let btn = document.querySelector('.add')
+        // let btn2 = document.querySelector('.sub')
+        let ans = document.querySelector('.answer')
+        btn.onclick = function(e){
+            e.preventDefault()
+            var one = document.querySelector('#one').value
+            var two = document.querySelector('#two').value
+            console.log(one, two)
+            ans.innerHTML = parseInt(one) + parseInt(two)
+        }
+
+    </script>
+</body>
+
+</html>

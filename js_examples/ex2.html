@@ -1,0 +1,21 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS example 2</title>
+</head>
+<body>
+    <h1 class="heading">This is sample heading</h1>
+    <button class="btn" onclick="changeMsg()" >Click here</button>
+
+    <script>
+        let heading = document.querySelector('h1')
+        let btn = document.querySelector('.btn')
+        function changeMsg(){
+            heading.innerText = 'This is updated heading'
+            btn.innerHTML = 'Clicked'
+        }
+    </script>
+</body>
+</html>
