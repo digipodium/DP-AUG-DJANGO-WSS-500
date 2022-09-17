@@ -12,9 +12,10 @@
             gap: .5rem;
             width: 100%;
             max-width: 200px;
-            margin:auto;
+            margin: auto;
         }
-        .btns{
+
+        .btns {
             display: flex;
             flex-flow: row wrap;
             justify-content: space-between;
@@ -41,12 +42,12 @@
         let btn = document.querySelector('.add')
         // let btn2 = document.querySelector('.sub')
         let ans = document.querySelector('.answer')
-        btn.onclick = function(e){
+        btn.onclick = function (e) {
             e.preventDefault()
-            var one = document.querySelector('#one').value
-            var two = document.querySelector('#two').value
+            var one = document.querySelector('#one').valueAsNumber
+            var two = document.querySelector('#two').valueAsNumber
             console.log(one, two)
-            ans.innerHTML = parseInt(one) + parseInt(two)
+            ans.innerHTML = one + two
         }
 
     </script>
