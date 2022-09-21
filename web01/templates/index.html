@@ -1,38 +1,9 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'layout/base.html' %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome</title>
-    <style>
-        body {
-            padding: 0;
-            margin: 0;
-        }
+{% block content %}
+    
+    <p>Welcome to the index page</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae ipsam in officiis architecto quae fugit laboriosam maxime nisi. Temporibus molestiae accusamus possimus esse accusantium assumenda maxime sed, voluptates dolore impedit itaque sapiente corrupti sit illum, inventore ipsa. Nostrum quaerat sint similique libero excepturi nulla quo unde. Omnis accusantium, maiores fugit consequatur obcaecati aperiam. Quam commodi accusamus, nostrum libero amet voluptatum, vitae dolorum magnam error repudiandae eum ducimus maxime dolorem aut, quis cumque nulla. Eum maiores ea magni suscipit doloremque? Ad veniam quasi perspiciatis repudiandae, aliquid quidem tempore nobis. Quia obcaecati voluptates doloribus earum! Necessitatibus sit fuga ea rerum eius doloremque quis vitae laudantium, quisquam, id neque! Corrupti provident sapiente nobis nam quo sint tempora tempore. Quod aperiam aliquid, repellat modi, quam reprehenderit porro dolor tenetur veritatis temporibus ullam natus obcaecati dolores quia, nemo eveniet. Sequi nam odit corrupti facilis. Expedita amet dignissimos labore, voluptatibus sequi doloremque mollitia quae, at consequuntur officia nulla earum debitis, ducimus doloribus eius? Quisquam fugit quaerat vitae voluptatem dicta ratione illum, veritatis quibusdam ipsam maxime quasi dignissimos dolore minima maiores commodi amet laudantium earum. Autem minima aliquam debitis ut iusto, quibusdam doloribus inventore quis numquam aspernatur, suscipit dolor magnam. Id incidunt sunt voluptatibus laudantium maiores facere.</p>
 
-        main {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            width: 100%;
-            background-color: rgb(20%, 20%, 60%);
-        }
-
-        h1 {
-            color: white;
-            font-size: 3rem;
-        }
-    </style>
-</head>
-
-<body>
-    <main>
-        <h1>Welcome to Django 4</h1>
-        <img src="{% static 'images/ironman.png' %}" alt="">
-    </main>
-</body>
-</html>
+{% endblock content %}
+    
