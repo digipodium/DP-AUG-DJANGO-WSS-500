@@ -1,9 +1,74 @@
 {% extends 'layout/base.html' %}
-
+{% load static %}
 {% block content %}
-    
-    <p>Welcome to the index page</p>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae ipsam in officiis architecto quae fugit laboriosam maxime nisi. Temporibus molestiae accusamus possimus esse accusantium assumenda maxime sed, voluptates dolore impedit itaque sapiente corrupti sit illum, inventore ipsa. Nostrum quaerat sint similique libero excepturi nulla quo unde. Omnis accusantium, maiores fugit consequatur obcaecati aperiam. Quam commodi accusamus, nostrum libero amet voluptatum, vitae dolorum magnam error repudiandae eum ducimus maxime dolorem aut, quis cumque nulla. Eum maiores ea magni suscipit doloremque? Ad veniam quasi perspiciatis repudiandae, aliquid quidem tempore nobis. Quia obcaecati voluptates doloribus earum! Necessitatibus sit fuga ea rerum eius doloremque quis vitae laudantium, quisquam, id neque! Corrupti provident sapiente nobis nam quo sint tempora tempore. Quod aperiam aliquid, repellat modi, quam reprehenderit porro dolor tenetur veritatis temporibus ullam natus obcaecati dolores quia, nemo eveniet. Sequi nam odit corrupti facilis. Expedita amet dignissimos labore, voluptatibus sequi doloremque mollitia quae, at consequuntur officia nulla earum debitis, ducimus doloribus eius? Quisquam fugit quaerat vitae voluptatem dicta ratione illum, veritatis quibusdam ipsam maxime quasi dignissimos dolore minima maiores commodi amet laudantium earum. Autem minima aliquam debitis ut iusto, quibusdam doloribus inventore quis numquam aspernatur, suscipit dolor magnam. Id incidunt sunt voluptatibus laudantium maiores facere.</p>
+
+<section class="container-fluid section1 text-white">
+    <div class="row">
+        <div class="col-md-12 px-0">
+            <h1 class="text-center display-1">Project 101</h1>
+            <p class="text-center lead px-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quae.
+            </p>
+        </div>
+    </div>
+</section>
+<section class="container section2">
+    <div class="row">
+        <div class="col-lg-6">
+            <h3 class="px-5">Simple Heading</h3>
+            <p class="text px-5">
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Enim consequuntur animi, nisi nesciunt facere
+                cum eveniet sit, quos amet repellat dolorem reiciendis possimus delectus. Dolorem incidunt illum
+                reprehenderit at eum.
+            </p>
+        </div>
+        <div class="col-lg-6">
+            <h3 class="px-5">Very Cool Heading</h3>
+            <p class="text px-5">
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Enim consequuntur animi, nisi nesciunt facere
+                cum eveniet sit, quos amet repellat dolorem reiciendis possimus delectus. Dolorem incidunt illum
+                reprehenderit at eum.
+            </p>
+        </div>
+    </div>
+</section>
+<section class="container section3">
+    <div class="row">
+        <div class="col-lg-6">
+            <img src="{% static 'images/image-02.png' %}" alt="placeholder" width="100%">
+        </div>
+        <div class="col-lg-6">
+            <img src="{% static 'images/image-01.png' %}" alt="placeholder" width="100%">
+        </div>
+    </div>
+</section>
+
+<div class="p-5 mb-4 bg-light rounded-3 text-center">
+    <div class="container-fluid py-5">
+        <h1 class="display-5 fw-bold">Custom jumbotron</h1>
+        <p class="col-md-8 fs-4 mx-auto">Using a series of utilities, you can create this jumbotron, just like the one in
+            previous versions of Bootstrap. Check out the examples below for how you can remix and restyle it to your
+            liking.</p>
+        <button class="btn btn-primary btn-lg" type="button">Example button</button>
+    </div>
+</div>
 
 {% endblock content %}
-    
+
+{% block css %}
+<style>
+    .section1 {
+        background-color: rgb(231, 215, 151);
+        padding: 10rem 0;
+        background-image: linear-gradient(rgba(227, 131, 131, 0.5), rgba(106, 159, 238, 0.5)), url('static/images/hero.jpg');
+        text-shadow: 2px 2px 4px #d42e2e;
+    }
+    .section1 .row{
+        margin-right: 0 !important;
+    }
+
+    .section2 {
+        padding: 8rem 0;
+    }
+
+</style>
+{% endblock css %}
