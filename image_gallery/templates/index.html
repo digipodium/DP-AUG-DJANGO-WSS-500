@@ -13,12 +13,16 @@
 <div class="container">
     <div class="row">
         {% for item in images %}
-        <div class="col-md-3 mb-3">
+        <div class="col-lg-3 col-md-6 mb-3">
             <div class="card">
-                <img class="card-img-top" src="{{item.image.url}}" alt="{{item.title}}" height="200">
+                <img class="card-img-top" src="{{item.image.url}}" alt="{{item.title}}">
                 <div class="card-body">
                     <h5 class="card-title">{{item.title}}</h5>
                     <p class="card-text">{{item.category}}</p>
+                </div>
+                <div class="card-footer">
+                    <a href="{% url 'view_image' item.id %}" class="btn "><i class="bi bi-eye text-primary"></i></a>
+                    <a class="btn" href="{% url 'delete_image' item.id %}"><i class="bi bi-trash text-danger"></i></a>
                 </div>
             </div>
         </div>
