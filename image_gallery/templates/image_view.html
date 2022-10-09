@@ -1,0 +1,26 @@
+{% extends 'layout/base.html' %}
+
+{% block content %}
+<div class="container vh-100">
+    <div class="row align-items-center justify-content-center h-100">
+        <div class="col-md-6 col-lg-4">
+            <img src="{{img.image.url}}" class="img-fluid shadow-lg" alt="{{img.title}}">
+        </div>
+        <div class="col-md-6 col-lg-8">
+            <h1>{{img.title}}</h1>
+            <p>{{img.category}}</p>
+        </div>
+    </div>
+</div>
+{% endblock content %}
+
+{% block css %}
+<style>
+    main {
+        background-image: url({{img.image.url}});
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+</style>
+{% endblock css %}

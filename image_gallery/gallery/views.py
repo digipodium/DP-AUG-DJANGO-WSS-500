@@ -19,7 +19,15 @@ def add_image(request):
     pass
 
 def view_image(request, image_id):
-    pass
+    try:
+        item = Image.objects.get(id=image_id)   # get the image using the id
+        ctx = {
+            'img': item,
+            'title' : item.title,
+        }
+        return render(request, 'image_view.html', ctx)
+    except:
+        return redirect('index')
 
 def delete_image(request, image_id):
     try:
