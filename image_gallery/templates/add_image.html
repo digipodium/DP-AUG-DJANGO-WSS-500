@@ -1,0 +1,16 @@
+{% extends 'layout/base.html' %}
+{% load django_bootstrap5 %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <form method="post">
+                {% csrf_token %}
+                {% bootstrap_form form %}
+                {% bootstrap_button button_type="submit" content="Upload" %}
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock content %}

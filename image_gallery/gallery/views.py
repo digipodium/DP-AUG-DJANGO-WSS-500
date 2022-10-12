@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from .models import Category, Image # (important) get the class of Category & Image
+from .forms import CategoryForm, ImageForm
 import os
 
 def index(request):
@@ -16,7 +17,12 @@ def add_category(request):
     pass
 
 def add_image(request):
-    pass
+    form = ImageForm() # create an empty form object
+    ctx = {
+        'form': form,
+        'title' : 'Add/Upload Image',
+    }
+    return render(request, 'add_image.html', ctx)
 
 def view_image(request, image_id):
     try:
