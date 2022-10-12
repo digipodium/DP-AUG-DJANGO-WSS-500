@@ -18,6 +18,16 @@ def add_category(request):
 
 def add_image(request):
     form = ImageForm() # create an empty form object
+    
+    if request.method == 'POST':                        # if the form is submitted
+        form = ImageForm(request.POST, request.FILES)   # create a form object with data
+        if form.is_valid():                             # check if the form is valid
+            title = form.cleaned_data['title']          # get the title from the form
+            category = form.cleaned_data['category']    # get the category from the form
+            image = form.cleaned_data['image']          # get the image from the form
+            img = Image(title=title, category=category, image=image) # create an image object
+            img.save()                                  # save the image object to database
+            return redirect('index')                              
     ctx = {
         'form': form,
         'title' : 'Add/Upload Image',

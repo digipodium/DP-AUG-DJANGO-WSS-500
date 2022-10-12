@@ -5,7 +5,7 @@
 <div class="container">
     <div class="row">
         <div class="col">
-            <form method="post">
+            <form method="post" enctype="multipart/form-data">
                 {% csrf_token %}
                 {% bootstrap_form form %}
                 {% bootstrap_button button_type="submit" content="Upload" %}
