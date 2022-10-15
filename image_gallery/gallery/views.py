@@ -14,7 +14,19 @@ def index(request):
     return render(request, 'index.html', ctx)
 
 def add_category(request):
-    pass
+    form = CategoryForm()
+    if request.method == 'POST':
+        form = CategoryForm(request.POST)
+        if form.is_valid():
+            name = form.cleaned_data['name']
+            cat = Category(name=name)
+            cat.save()
+            return redirect('index')
+    ctx = {
+        'form': form,
+        'title' : 'Add Category',
+    }
+    return render(request, 'add_category.html', ctx)
 
 def add_image(request):
     form = ImageForm() # create an empty form object
