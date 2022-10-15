@@ -1,13 +1,13 @@
 {% extends 'layout/base.html' %}
-
+{% load static %}
 
 {% block content %}
-<div class="container">
-    <div class="p-5 mb-4 bg-light rounded-3">
-        <div class="container-fluid py-5">
+<div class="container mt-3 overlay px-0 rounded-3">
+    <div class="p-5 mb-4 bg-transparent rounded-3 shadow-lg hero ">
+        <div class="container-fluid py-5 text-light">
             <h1 class="display-5 fw-bold">Image Gallery</h1>
             <p class="col-md-8 fs-4">this is a django image gallery</p>
-            <a href="{% url 'add_image' %}" class="btn btn-outline-primary">
+            <a href="{% url 'add_image' %}" class="btn btn-primary">
                 <i class="bi bi-cloud-arrow-up"></i> Add Image
             </a>
         </div>
@@ -33,3 +33,21 @@
     </div>
 </div>
 {% endblock content %}
+
+{% block css %}
+<style>
+    .overlay .hero {
+        backdrop-filter: blur(5px) saturate(100%) brightness(70%);
+    }
+
+    .overlay{
+        background-image: url('{% static "images/hero.jpg" %}');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+    .hero {
+        text-shadow: 0 0 3px #000;
+    }
+</style>
+{% endblock css %}

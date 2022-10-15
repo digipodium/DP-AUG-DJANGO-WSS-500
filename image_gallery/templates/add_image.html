@@ -2,15 +2,17 @@
 {% load django_bootstrap5 %}
 
 {% block content %}
-<div class="container">
-    <div class="row">
-        <div class="col">
-            <form method="post" enctype="multipart/form-data">
+<!-- centered content -->
+<div class="container vh-100">
+    <div class="row justify-content-center align-items-center vh-100">
+         <div class="col-6 shadow-lg p-3 rounded-3 mb-5">
+            <h1 class="text-center display-5">Upload your Image</h1>
+            <form action="{% url 'add_image' %}" method="POST" enctype="multipart/form-data">
                 {% csrf_token %}
                 {% bootstrap_form form %}
-                {% bootstrap_button button_type="submit" content="Upload" %}
+                <button type="submit" class="btn btn-primary">Add Image</button>
             </form>
         </div>
     </div>
-</div>
-{% endblock content %}
+
+    {% endblock content %}
