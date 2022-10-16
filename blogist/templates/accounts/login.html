@@ -1,0 +1,20 @@
+{% extends 'layout/base.html' %}
+{% load django_bootstrap5 %}
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-4">
+            <h1>Sign In to Blogist 🥷</h1>
+            <form method="POST" >
+                {% csrf_token %}
+                {% bootstrap_form form %}
+                {% bootstrap_button "Sign In" type="submit" %}
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+{% block css %}{% endblock %}
+{% block js %}{% endblock %}

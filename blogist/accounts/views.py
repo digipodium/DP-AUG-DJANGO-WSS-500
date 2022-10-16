@@ -5,9 +5,8 @@ from django.contrib import messages
 
 # Create your views here.
 def login_view(request):
-    form = LoginForm()
-    if request.method == 'POST':
-        form = LoginForm(request.POST)
+    form = LoginForm(request.POST or None)
+    if form.is_valid():
         uname = form.cleaned_data.get('username')
         pwd = form.cleaned_data.get('password')
         user = authenticate(request, username=uname, password=pwd)
