@@ -19,9 +19,9 @@ class LoginForm(forms.Form):
 # register form
 class RegisterForm(forms.Form):
     username = forms.CharField()
-    email = forms.EmailField()
-    password1 = forms.CharField(widget=forms.PasswordInput)
-    password2 = forms.CharField(widget=forms.PasswordInput)
+    email = forms.EmailField(help_text='Enter a valid email address')
+    password1 = forms.CharField(widget=forms.PasswordInput, label='Password')
+    password2 = forms.CharField(widget=forms.PasswordInput, label="Confirm Password")
 
     def clean_username(self):
         username = self.cleaned_data.get('username')

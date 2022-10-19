@@ -54,11 +54,33 @@
                 </ul>
 
                 <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
+
+                    {% if user.is_authenticated %}
+                    <div class="dropdown text-end">
+                        <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32"
+                                class="rounded-circle">
+                        </a>
+                        <ul class="dropdown-menu text-small">
+                            <li><a class="dropdown-item" href="#">Profile</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#">Sign out</a></li>
+                        </ul>
+                    </div>
+                    {% else %}
                     <li class="nav-item shadow-sm rounded-2 bg-red px-2">
                         <a class="nav-link text-white" href="{% url 'login' %}" title="Sign-In">
                             <i class="bi bi-person-check me-3"></i> Sign-In
                         </a>
                     </li>
+                    {% endif %}
+
+
+
+
                 </ul>
             </div>
         </div>
