@@ -18,8 +18,7 @@
                                 {% csrf_token %}
                                 {% bootstrap_form form %}
                                 {% bootstrap_button "Sign In" type="submit" %}
-
-                                <a href="#" class="nav-link lead my-3">Don't have an account? Sign Up</a>
+                                <a href="{% url 'register' %}" class="nav-link">Dont have an account, Register Free!</a>
                             </form>
                         </div>
                     </div>

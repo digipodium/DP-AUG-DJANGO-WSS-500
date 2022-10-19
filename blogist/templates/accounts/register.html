@@ -1,0 +1,33 @@
+{% extends 'layout/base.html' %}
+{% load django_bootstrap5 %}
+{% load static %}
+{% block content %}
+
+<div class="container pt-5">
+    <div class="row justify-content-center align-items-center 100h pt-5">
+        <div class="col-lg-5 ">
+            <div class="card mb-3 border-0 rounded-3 shadow-lg mt-5">
+                <div class="card-body">
+                    <h3>Create a new account on Blogist</h3>
+                    <form method="POST">
+                        {% csrf_token %}
+                        {% bootstrap_form form %}
+                        {% bootstrap_button "Register" type="submit" %}
+                        <a href="{% url 'login' %}" class="nav-link lead my-3">Already have an account <b>Login</b></a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block css %}
+<style>
+    body {
+        background-color: rgb(237, 147, 87);
+        height: 100vh;
+    }
+</style>
+{% endblock %}
