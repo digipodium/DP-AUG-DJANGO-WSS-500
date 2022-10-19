@@ -1,20 +1,64 @@
 {% extends 'layout/base.html' %}
 {% load django_bootstrap5 %}
+{% load static %}
 {% block content %}
 
-<div class="container">
-    <div class="row">
-        <div class="col-lg-4">
-            <h1>Sign In to Blogist 🥷</h1>
-            <form method="POST" >
-                {% csrf_token %}
-                {% bootstrap_form form %}
-                {% bootstrap_button "Sign In" type="submit" %}
-            </form>
+<div class="container pt-5">
+    <div class="row justify-content-center align-items-center 100h pt-5">
+        <div class="col-lg-8 ">
+            <div class="card mb-3 border-0 rounded-3 shadow-lg mt-5">
+                <div class="row g-0">
+                    <div class="col-md-4 rounded-start mx-auto d-flex align-items-center">
+                        <img src="{% static 'images/hero2.png' %}" class="img-fluid mx-auto hero" alt="login form">
+                    </div>
+                    <div class="col-md-8 py-5">
+                        <div class="card-body">
+                            <h3>Sign In to Blogist 🥷</h3>
+                            <form method="POST">
+                                {% csrf_token %}
+                                {% bootstrap_form form %}
+                                {% bootstrap_button "Sign In" type="submit" %}
+
+                                <a href="#" class="nav-link lead my-3">Don't have an account? Sign Up</a>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
 
 {% endblock %}
-{% block css %}{% endblock %}
-{% block js %}{% endblock %}
+{% block css %}
+<style>
+    body {
+        background-color: rgb(44, 41, 39);
+        height: 100vh;
+    }
+
+    .hero {
+        transition: all 0.5s ease-in-out;
+    }
+
+    .card:hover {
+        background-color: rgb(244, 241, 239);
+    }
+</style>
+{% endblock %}
+{% block js %}
+<script>
+
+    // function that will rotate .hero when #is_username is focused
+    function rotateHero(elem, val) {
+        const hero = document.querySelector(elem);
+        hero.style.transform = `rotate(${val}deg)`;
+    }
+
+
+    // get the input field
+    document.querySelector('#id_username').addEventListener('focus', () => { rotateHero('.hero', -30); });
+    document.querySelector('#id_password').addEventListener('focus', () => { rotateHero('.hero', - 4); });
+</script>
+
+{% endblock %}
