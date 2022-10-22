@@ -1,4 +1,63 @@
 {% extends 'layout/base.html' %}
-{% block content %}{% endblock %}
-{% block css %}{% endblock %}
-{% block js %}{% endblock %}
+{% load static %}
+{% block content %}
+
+<div class="p-5 mb-4 bg-light shadow-sm   hero">
+    <div class="container py-5">
+        <h1 class="fw-bold display-1">
+            Blog<span class="text-success">ist</span>
+        </h1>
+        <p class="col-md-8 fs-4">
+            Welcome to Blogist, a awesome blog app for training purposes of students of Digipodium.
+            Built with 💗 using Django, Sqlite and Bootstrap 5.
+        </p>
+        <div class="search-wrapper">
+            <div class="container search-btn">
+                <button class="btn btn-outline-dark btn-lg" type="button">
+                    <i class="bi bi-search"></i> Search
+                </button>
+            </div>
+            <div class="container d-none" id="search-box">
+                <form class="d-flex">
+                    <input class="form-control form-control-lg me-2 px-5 py-1" type="search" placeholder="Search"
+                        aria-label="Search">
+                    <div class="btn-group" role="group" aria-label="Basic example">
+                        <button class="btn btn-outline-dark" type="submit">
+                            <i class="bi bi-search h4"></i>
+                        </button>
+                        <button class="btn btn-dark" type="button" id="close-search">
+                            <i class="bi bi-x"></i>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block css %}
+<style>
+    .hero {
+        background-image: url('{% static "images/hero-01.png" %}');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+</style>
+{% endblock %}
+{% block js %}
+<script>
+    let searchBtn = document.querySelector('.search-btn');
+    let searchBox = document.querySelector('#search-box');
+    let closeSearch = document.querySelector('#close-search');
+
+    searchBtn.addEventListener('click', () => {
+        searchBox.classList.toggle('d-none');
+        searchBtn.classList.toggle('d-none');
+    });
+    closeSearch.addEventListener('click', () => {
+        searchBox.classList.toggle('d-none');
+        searchBtn.classList.toggle('d-none');
+    });
+</script>
+{% endblock %}

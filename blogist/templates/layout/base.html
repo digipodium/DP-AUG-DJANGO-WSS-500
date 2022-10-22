@@ -15,7 +15,7 @@
     {% block css %}{% endblock %}
     <style>
         .navbar {
-            background-color: #f07452 !important;
+            background-color: #FF7C44 !important;
         }
 
         .bg-red {
@@ -56,18 +56,34 @@
                 <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
 
                     {% if user.is_authenticated %}
-                    <div class="dropdown text-end">
-                        <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle"
+                    <div class="dropdown text-end ">
+                        <a href="#" class="d-block link-light text-decoration-none dropdown-toggle"
                             data-bs-toggle="dropdown" aria-expanded="false">
-                            <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32"
-                                class="rounded-circle">
+                            <i class="bi bi-person-circle h4"></i>
                         </a>
                         <ul class="dropdown-menu text-small">
-                            <li><a class="dropdown-item" href="#">Profile</a></li>
+                            {% if user.is_superuser %}
+                            <li>
+                                <a class="dropdown-item" href="{% url 'admin:index' %}">
+                                    <i class="bi bi-speedometer2"></i> Dashboard
+                                </a>
+                            </li>
+                            {% else %}
+                            <li>
+                                <a class="dropdown-item" href="#">
+                                    <i class="bi bi-person"></i> Profile
+                                </a>
+                            </li>
+                            {% endif %}
+
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-                            <li><a class="dropdown-item" href="#">Sign out</a></li>
+                            <li>
+                                <a class="dropdown-item" href="#">
+                                    <i class="bi bi-box-arrow-right"></i> Sign out 
+                                </a>
+                            </li>
                         </ul>
                     </div>
                     {% else %}
@@ -77,10 +93,6 @@
                         </a>
                     </li>
                     {% endif %}
-
-
-
-
                 </ul>
             </div>
         </div>
