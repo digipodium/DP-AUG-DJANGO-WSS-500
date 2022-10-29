@@ -1,5 +1,6 @@
 from django.db import models
 from django.conf import settings
+from sqlalchemy import null
 # pip install `django-tinymce` for the import below
 from tinymce.models import HTMLField
 
@@ -33,8 +34,8 @@ class Article(models.Model):
     
     title = models.CharField(max_length=100, unique=True)
     publish_date = models.DateTimeField(auto_now_add=True)
-    category = models.ForeignKey(Category, on_delete=models.SET_NULL)
-    author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.SET_NULL)
+    category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True)
+    author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.SET_NULL, null=True)
     status = models.IntegerField(choices=StatusChoice.choices, default=StatusChoice.DRAFT)
     tags = models.ManyToManyField(Tag)
     duration = models.DurationField()
