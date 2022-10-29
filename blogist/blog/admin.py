@@ -11,4 +11,4 @@ class ArticleAdmin(admin.ModelAdmin):
     list_filter = ('author','category','status')
     search_fields = ('title','author__username','category__name')
     date_hierarchy = 'publish_date'
-    ordering = ('created_on','publish_date')
+    ordering = ('created_at','publish_date')

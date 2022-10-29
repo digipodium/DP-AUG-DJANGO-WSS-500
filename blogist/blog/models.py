@@ -40,7 +40,6 @@ class Article(models.Model):
     tags = models.ManyToManyField(Tag)
     duration = models.DurationField()
     content = HTMLField()
-    images = models.ManyToManyField(Image)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
