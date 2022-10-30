@@ -32,7 +32,7 @@
                 <div class="card-header bg-transparent border-0">
                     <h3>Add New Category</h3>
                 </div>
-                <form action="" method="post" class="card-body">
+                <form method="post" class="card-body" id="catform">
                     {% csrf_token %}
                     {% bootstrap_form category_form %}
                     {% bootstrap_button "Add Category" type="submit" %}
@@ -42,7 +42,7 @@
                 <div class="card-header bg-transparent border-0">
                     <h3 class="card-title">Add Tags</h3>
                 </div>
-                <form action="" method="post" class="card-body">
+                <form action="" method="post" class="card-body" id="tagform">
                     {% csrf_token %}
                     {% bootstrap_form tag_form %}
                     {% bootstrap_button "Add Tags" type="submit" %}
@@ -59,4 +59,56 @@
 
 
 {% block js %}
+<script src="https://code.jquery.com/jquery-3.6.1.min.js"
+    integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+<script>
+    let catform = $('#catform');
+    catform.submit((e) => {
+        e.preventDefault();
+        $.ajax({
+            type: "post",
+            url: "{% url 'cat_create' %}",
+            data: catform.serialize(),
+            dataType: "json",
+            success: function (response) {
+                status = response.status;
+                id = response.id;
+                name = response.name;
+                if (status === 'success') {
+                    alert('Category Added Successfully');
+                    let category = $('#id_category');
+                    category.append(`<option value="${id}">${name}</option>`);
+                }
+                else {
+                    alert(status);
+                }
+            }
+        });
+    });
+
+    let tagform = $('#tagform');
+    tagform.submit((e) => {
+        e.preventDefault();
+        $.ajax({
+            type: "post",
+            url: "{% url 'tag_create' %}",
+            data: tagform.serialize(),
+            dataType: "json",
+            success: function (response) {
+                status = response.status;
+                id = response.id;
+                name = response.name;
+                if (status === 'success') {
+                    alert('Category Added Successfully');
+                    let tags = $('#id_tags');
+                    // tbd
+                }
+                else {
+                    alert(status);
+                }
+            }
+        });
+    });
+
+</script>
 {% endblock %}
