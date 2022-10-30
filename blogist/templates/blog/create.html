@@ -54,7 +54,22 @@
 </div>
 {% endblock %}
 {% block css %}
+<style>
+    #id_tags,
+    #id_status {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-content: center;
+        justify-content: flex-start;
+        align-items: flex-end;
+    }
 
+    #id_tags>.form-check,
+    #id_status>.form-check {
+        margin: 0 2rem 1rem 0;
+    }
+</style>
 {% endblock %}
 
 
@@ -75,9 +90,16 @@
                 id = response.id;
                 name = response.name;
                 if (status === 'success') {
-                    alert('Category Added Successfully');
+                    // alert('Category Added Successfully');
                     let category = $('#id_category');
                     category.append(`<option value="${id}">${name}</option>`);
+                    catform.find('input').val('');
+                    // add a tick mark in the form
+                    catform.append(`<i class="bi bi-check-circle-fill text-success px-3"></i>`);
+                    // timeout to remove the tick mark
+                    setTimeout(() => {
+                        tagform.find('i').remove();
+                    }, 2000);
                 }
                 else {
                     alert(status);
@@ -99,9 +121,20 @@
                 id = response.id;
                 name = response.name;
                 if (status === 'success') {
-                    alert('Category Added Successfully');
                     let tags = $('#id_tags');
-                    // tbd
+                    tag_checkbox_snippet = `<div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="tags" id="id_tags_${id - 1}" value="${id}">
+                    <label class="form-check-label" for="id_tags_${id - 1}">${name}</label>
+                    </div>
+                    `
+                    tags.append(tag_checkbox_snippet);
+                    tagform.find('input').val('');
+                    // add a tick mark in the form
+                    tagform.append(`<i class="bi bi-check-circle-fill text-success px-3"></i>`);
+                    // timeout to remove the tick mark
+                    setTimeout(() => {
+                        tagform.find('i').remove();
+                    }, 2000);
                 }
                 else {
                     alert(status);
