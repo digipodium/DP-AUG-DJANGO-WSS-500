@@ -7,7 +7,9 @@ from django.conf import settings
 
 def index(request):
     ctx = {}
+    articles = Article.objects.filter(status=1)
     ctx['title'] = 'Home'
+    ctx['articles'] = articles
     return render(request, 'blog/index.html', ctx)
 
 def landing(request):
@@ -62,3 +64,10 @@ def tag_create(request):
 
 def image_upload(request):
     pass
+
+def article_view(request, id):
+    ctx = {}
+    article = get_object_or_404(Article, id=id)
+    ctx['title'] = article.title
+    ctx['article'] = article
+    return render(request, 'blog/detail.html', ctx)
