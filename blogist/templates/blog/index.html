@@ -18,9 +18,9 @@
                 </button>
             </div>
             <div class="container d-none" id="search-box">
-                <form class="d-flex">
+                <form class="d-flex" action="{% url 'search' %}">
                     <input class="form-control form-control-lg me-2 px-5 py-1" type="search" placeholder="Search"
-                        aria-label="Search">
+                        aria-label="Search" name="q">
                     <div class="btn-group" role="group" aria-label="Basic example">
                         <button class="btn btn-outline-dark" type="submit">
                             <i class="bi bi-search h4"></i>

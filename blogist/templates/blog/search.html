@@ -1,0 +1,45 @@
+{% extends 'layout/base.html' %}
+{% load static %}
+{% block content %}
+<div class="p-5 mb-4 bg-light rounded-3">
+    <div class="container-fluid py-5">
+        <h1 class="display-5 fw-bold">Search results for `{{q}}`</h1>
+        <p class="col-md-8 fs-4">
+            <b>total articles</b>: {{articles|length}} articles
+        </p>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-10 mx-auto">
+
+            {% for item in articles %}
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h4 class="card-title">
+                        <a href="{% url 'view' item.id %}" class="nav-link">
+                            {{item.title}}
+                        </a>
+                    </h4>
+                    <p class="card-text">
+                        {{item.content|truncatechars:100|safe}}
+                    </p>
+                    <a href="{% url 'view' item.id %}" class="btn btn-primary">
+                        Read more
+                    </a>
+                </div>
+            </div>
+            {% empty %}
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h4 class="card-title">
+                        No articles found related to `{{q}}`
+                    </h4>
+                </div>
+            </div>
+            {% endfor %}
+
+        </div>
+    </div>
+</div>
+{% endblock %}

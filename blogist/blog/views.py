@@ -82,5 +82,12 @@ def article_view(request, id):
     ctx['article'] = article
     return render(request, 'blog/detail.html', ctx)
 
+def search_article(request):
+    ctx = {}
+    query = request.GET.get('q')
+    # print(query)
+    ctx['articles'] = Article.objects.filter(content__icontains=query).filter(status=1)
+    ctx['q'] = query
+    return render(request, 'blog/search.html',ctx)
 
 

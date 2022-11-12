@@ -1,6 +1,5 @@
 from django.db import models
 from django.conf import settings
-from sqlalchemy import null
 # pip install `django-tinymce` for the import below
 from tinymce.models import HTMLField
 
