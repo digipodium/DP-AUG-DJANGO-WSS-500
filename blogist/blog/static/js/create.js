@@ -1,9 +1,11 @@
+
+
 let catform = $('#catform');
 catform.submit((e) => {
     e.preventDefault();
     $.ajax({
         type: "post",
-        url: "{% url 'cat_create' %}",
+        url: "/api/category/create/",
         data: catform.serialize(),
         dataType: "json",
         success: function (response) {
@@ -34,7 +36,7 @@ tagform.submit((e) => {
     e.preventDefault();
     $.ajax({
         type: "post",
-        url: "{% url 'tag_create' %}",
+        url: "/api/tag/create/",
         data: tagform.serialize(),
         dataType: "json",
         success: function (response) {
@@ -69,7 +71,7 @@ mediaform.submit((e) => {
     e.preventDefault();
     $.ajax({
         type: "post",
-        url: "{% url 'image_create' %}",
+        url: "/api/image/upload/",
         data: new FormData(mediaform[0]),
         processData: false,
         contentType: false,
