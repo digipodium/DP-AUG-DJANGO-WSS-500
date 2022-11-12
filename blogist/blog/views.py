@@ -63,7 +63,17 @@ def tag_create(request):
         return JsonResponse({'status': 'error'})
 
 def image_upload(request):
-    pass
+    if request.method == 'POST':
+        image_form = ImageForm(request.POST, request.FILES)
+        print(image_form)
+        if image_form.is_valid():
+            image = image_form.save(commit=False)
+            image.save()
+            return JsonResponse({'status': 'success', 'name': image.image.name, 'id': image.id})
+        else:
+            return JsonResponse({'status': 'invalid data'})
+    else:
+        return JsonResponse({'status': 'error'})
 
 def article_view(request, id):
     ctx = {}
@@ -71,3 +81,6 @@ def article_view(request, id):
     ctx['title'] = article.title
     ctx['article'] = article
     return render(request, 'blog/detail.html', ctx)
+
+
+
