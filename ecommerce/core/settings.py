@@ -20,7 +20,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-w%4qz^ca!a!+4*1vsi6s=s*6b$=(ef4006&=o#*6!_!6to0n9f'
+SECRET_KEY = 'django-insecure-x2&28uv_1i#ovt3aqofn%7kw620v$b5icct^_*8ncle9t6+(k)'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -37,10 +37,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'blog',
     'accounts',
-    'django_bootstrap5',
-    'tinymce',
+    'products',
+    'orders',
+    'django_bootstrap5'
 ]
 
 MIDDLEWARE = [
@@ -120,18 +120,12 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 STATIC_URL = 'static/'
-MEDIA_URL = 'media/'
-
 STATIC_ROOT = BASE_DIR.joinpath('static')
+
+MEDIA_URL = 'media/'
 MEDIA_ROOT = BASE_DIR.joinpath('media')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-TINYMCE_DEFAULT_CONFIG = {
-    "plugins": "advlist,autolink,lists,link,image,charmap,print,preview,anchor,"
-    "searchreplace,visualblocks,code,fu llscreen,insertdatetime,media,table,paste,"
-    "code,help,wordcount",
-}
