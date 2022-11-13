@@ -1,0 +1,21 @@
+{% extends 'layout/base.html' %}
+{% load django_bootstrap5 %}
+{% load static %}
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 my-3 mx-auto">
+            <div class="card mt-5 border-0">
+                <form method="POST" >
+                    {% csrf_token %}
+                    {% bootstrap_form form %}
+                    {% bootstrap_button 'Add Product' type='submit' %}
+                </form>
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

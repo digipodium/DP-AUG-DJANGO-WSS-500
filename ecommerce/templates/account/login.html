@@ -1,0 +1,58 @@
+{% extends 'layout/base.html' %}
+{% load django_bootstrap5 %}
+{% load static %}
+{% load i18n %}
+{% load account socialaccount %}
+
+
+{% block head_title %}{% trans "Sign In" %}{% endblock %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 my-3 mx-auto">
+            <div class="card mt-5 shadow-lg">
+                <div class="card-header bg-transparent">
+                    <h4 class="card-title">Sign In</h4>
+                </div>
+                <form class="login card-body" method="POST" action="{% url 'account_login' %}">
+                    {% csrf_token %}
+                    {% bootstrap_form form %}
+                    {% if redirect_field_value %}
+                    <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+                    {% endif %}
+                    
+                    <div class="mb-3">
+                        <button class="primaryAction btn btn-primary" type="submit">{% trans "Sign In" %}</button>
+                    </div>
+                </form>
+                <div class="card-footer">
+                    <a class="button secondaryAction nav-link" href="{% url 'account_reset_password' %}">
+                        {% trans "Forgot Password?"%}
+                    </a>
+                </div>
+            </div>
+
+            {% get_providers as socialaccount_providers %}
+            {% include "socialaccount/snippets/login_extra.html" %}
+        </div>
+        <div class="col-md-8 my-3 mx-auto text-center">
+            {% if socialaccount_providers %}
+
+            <div class="socialaccount_ballot mx-auto my-3">
+                <a href="{% provider_login_url 'github' %}" class="btn btn-dark btn-lg btn-block shadow-lg">
+                    <i class="bi bi-github"></i> Sign in with Github
+
+                </a>
+            </div>
+            {% else %}
+            <p>{% blocktrans %}If you have not created an account yet, then please
+                <a href="{{ signup_url }}">sign up</a> first.{% endblocktrans %}
+            </p>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+{% endblock %}

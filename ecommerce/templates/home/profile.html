@@ -1,0 +1,45 @@
+{% extends 'layout/base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 my-3">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">
+                        {{ user.username }}
+                    </h4>
+                    <p class="card-text">
+                        {{ user.email }}
+                    </p>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                        {% if user.has_usable_password %}
+                        <a href="{% url 'account_change_password' %}" class="nav-link">
+                            Change Password
+                        </a>
+                        {% else %}
+                        <a href="{% url 'account_set_password' %}" class="nav-link">
+                            Set Password
+                        </a>
+                        {% endif %}
+                    </li>
+                    <li class="list-group-item">
+                        <a href="{% url 'account_email' %}" class="nav-link">
+                            Change Email
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="{% url 'account_logout' %}" class="nav-link">
+                            Logout
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
