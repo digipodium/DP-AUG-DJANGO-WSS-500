@@ -4,6 +4,12 @@ from django.contrib.auth import logout
 from .models import Slider
 
 
+# def home_view(request):
+#     ctx = {}
+#     ctx['sliders'] = Slider.objects.all()
+#     ctx['title'] = 'Home'
+#     return render(request, 'home/index.html', ctx)
+
 # Create your views here.
 class HomeView(TemplateView):
     template_name = 'home/index.html'    

@@ -5,12 +5,22 @@
 <div class="container">
     <div class="row">
         {% for product in object_list %}
-        <div class="col-md-4 my-3">
-            <div class="card">
+        <div class="col-md-3 my-3">
+            <div class="card shadow-lg">
                 <div class="card-body">
                     <div class="card-title">
                         {{ product.title }}
                     </div>
+                    <div class="card-text">
+                        {{ product.description }}
+                    </div>
+                    <div class="card-text">
+                        <i class="bi bi-cash"></i> {{ product.price }}
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <a href="{% url 'product_detail' product.slug %}" class="btn btn-primary btn-sm">View</a>
+                    <a href="{% url 'product_detail' product.slug %}" class="btn btn-success btn-sm">Purchase</a>
                 </div>
             </div>
         </div>
