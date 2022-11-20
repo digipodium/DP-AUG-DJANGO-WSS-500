@@ -1,0 +1,29 @@
+{% if user.is_authenticated %}
+Welcome
+{% if request.session.is_student %}
+student {{user.username}}
+
+<p>
+    {{user.student.course}}
+</p>
+<p>
+    {{user.student.stream}}
+</p>
+<p>
+    {{user.student.roll_no}}
+</p>
+<p>
+    {{user.student.phone}}
+</p>
+<p>
+    {{user.student.city}}
+</p>
+<p>
+    {{user.student.passing_year}}
+</p>
+
+{% endif %}
+you are logged in
+{% else %}
+You should login
+{% endif %}

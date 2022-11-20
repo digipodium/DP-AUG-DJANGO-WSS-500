@@ -1,0 +1,61 @@
+<h1>Student Register</h1>
+{% include 'message.html' %}
+<form method="POST">
+    {% csrf_token %}
+    <p>
+        <label for="username">Username:</label>
+        <input type="text" name="username" id="username" />
+    </p>
+    <p>
+        <label for="password">Password:</label>
+        <input type="password" name="password" id="password" />
+    </p>
+    <p>
+        <label for="password2">Confirm Password:</label>
+        <input type="password" name="password2" id="password2" />
+    </p>
+    <p>
+        <label for="email">Email:</label>
+        <input type="text" name="email" id="email" />
+    </p>
+    <p>
+        <label for="course">Course</label>
+        <input type="text" name="course" id="course" />
+    </p>
+    <p>
+        <label for="stream">Stream</label>
+        <input type="text" name="stream" id="stream" />
+    </p>
+    <p>
+        <label for="roll_no">Roll No</label>
+        <input type="text" name="roll_no" id="roll_no" />
+    </p>
+    <p>
+        <label for="phone">Phone</label>
+        <input type="text" name="phone" id="phone" />
+    </p>
+    <p>
+        <label for="city">City</label>
+        <input type="text" name="city" id="city" />
+    </p>
+    <p>
+        <label for="passyear">Select Passing year</label>
+        <select name="passing_year" id="passyear">
+            <option value="2019">2019</option>
+            <option value="2020">2020</option>
+            <option value="2021">2021</option>
+            <option value="2022">2022</option>
+            <option value="2023">2023</option>
+            <option value="2024">2024</option>
+            <option value="2025">2025</option>
+            <option value="2026">2026</option>
+            <option value="2027">2027</option>
+            <option value="2028">2028</option>
+            <option value="2029">2029</option>
+            <option value="2030">2030</option>
+        </select>
+    </p>
+    <p>
+        <input type="submit" value="Register" />
+    </p>
+</form>
